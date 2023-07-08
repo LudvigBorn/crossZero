@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>Cross-zero</title>
+    <link rel="stylesheet" href="./styles/styles.css" />
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+      const SYMBOL_X = "X";
+      const SYMBOL_O = "O";
+
+      function App() {
+        const currentStep = SYMBOL_O;
+
+        const cells = [
+          null,
+          null,
+          null,
+          SYMBOL_O,
+          SYMBOL_X,
+          null,
+          null,
+          SYMBOL_O,
+          SYMBOL_X,
+        ];
+
+        const getSymbolClassName = (symbol) => {
+          if (symbol === SYMBOL_O) return "symbol--o";
+          if (symbol === SYMBOL_X) return "symbol--x";
+          return "";
+        };
+
+        const renderSymbol = (symbol) => (
+          <span className={`symbol ${getSymbolClassName(symbol)}`}>
+            {symbol}
+          </span>
+        );
+
+        const elements = cells.map((symbol,i) => {
+          return (
+            <button key = {i} className="cell">
+              {symbol ? renderSymbol(symbol) : null}
+            </button>
+          );
+        });
+
+        return (
+          <div className="game">
+            <div className="game-info">Ход: {renderSymbol(currentStep)}</div>
+            <div className="game-field">{elements}</div>
+          </div>
+        );
+      }
+
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+
+      root.render(<App />);
+    </script>
+  </body>
+</html>
+
+<!-- <button className="cell">
+                <span className="symbol symbol--o">O</span>
+              </button>
+              <button className="cell"></button>
+              <button className="cell cell--win">
+                <span className="symbol symbol--x">X</span>
+              </button>
+              <button className="cell"></button>
+              <button className="cell">
+                <span className="symbol symbol--o">O</span>
+              </button>
+              <button className="cell cell--win">
+                <span className="symbol symbol--x">X</span>
+              </button>
+              <button className="cell">
+                <span className="symbol symbol--o">O</span>
+              </button>
+              <button className="cell"></button> -->

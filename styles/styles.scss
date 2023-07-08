@@ -1,0 +1,40 @@
+html {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 150px;
+  margin: 100px auto;
+  padding: 20px;
+  border: 1px solid black;
+}
+
+.game-info {
+  margin-bottom: 10px;
+}
+
+.game-field {
+  display: grid;
+  grid-template-columns: repeat(3, 30px);
+  grid-template-rows: repeat(3, 30px);
+}
+
+.cell {
+  cursor: pointer;
+  border: 1px solid #6e6e6e;
+  background-color: #fff;
+  &--win {
+    background-color: rgba($color: green, $alpha: 0.2);
+  }
+}
+.symbol {
+  &--o {
+    color: green;
+  }
+  &--x {
+    color: red;
+  }
+}
