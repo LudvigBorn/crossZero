@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -39,7 +39,7 @@
 
       const useGameState = () => {
         const [cells, setCells] = React.useState(
-          Array.from({ length: 9 }, () => null)
+          Array.from({ length: 9 }, () => null),
         );
         const [currentStep, setCurrentStep] = React.useState(SYMBOL_O);
         const [winnerSequence, setWinnerSequence] = React.useState();
